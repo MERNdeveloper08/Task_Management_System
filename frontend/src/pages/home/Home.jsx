@@ -15,8 +15,6 @@ const Home = () => {
   const [activeCard, setActiveCard] = useState(null);
   const [select, setSelect] = useState(true);
 
-  // console.log("tasks", tasks);
-
   const getTasks = async () => {
     const response = await axios.get("http://localhost:4000/task");
     // console.log(response.data);

@@ -25,13 +25,9 @@ const TaskCard = ({
     deadline: "",
   });
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-  // const [project, setProject] = useState([]);
-  // const [editTask, setEditTask] = useState([]);
-  // const [addTask, setAddTask] = useState(false);
 
   const [project, setProject] = useState([]);
   const [p, setP] = useState();
-  // const [selected, setSelected] = useState(false);
 
   // const head = useRef();
   const defaultDate = dayjs(editTask.deadline, "YYYY-MM-DD");
@@ -66,9 +62,6 @@ const TaskCard = ({
   const onChangeSelect = value => {
     // console.log(dateString);
     setEditTask({ ...editTask, status: value });
-    // console.log(value);
-
-    // console.log(add);
   };
   const onBtnClick = async id => {
     console.log(editTask);
@@ -77,33 +70,24 @@ const TaskCard = ({
       `http://localhost:4000/task/${id}`,
       editTask
     );
-    // navigate("/");
-    // set(true);
-    // console.log("inside add fn");
+
     setIsEditModalOpen(false);
     // getTasks();
   };
 
-  // console.log({ heading });
   const onDelClicked = async id => {
     const response = await axios.delete(`http://localhost:4000/task/${id}`);
   };
   const onEditClicked = async id => {
     const response = await axios.get(`http://localhost:4000/task/${id}`);
 
-    // const res = await axios.get(`http://localhost:4000/task/${id}`);
-    // setEditTask(response.data);
-
     console.log(response.data);
-
-    // showEditModal(true);
 
     const res = await axios.get(
       `http://localhost:4000/projects/${response.data.project}`
     );
     console.log(res.data.name);
     setP(res.data.name);
-    // console.log(add);
     setEditTask(response.data);
     console.log(editTask);
 
@@ -122,10 +106,7 @@ const TaskCard = ({
 
         <p>{description}</p>
         <p>Status :{status}</p>
-        <p>
-          Deadline :{deadline.split("T")[0]}
-          {/* {new Date(parseInt({ deadline })).toISOString().split("T")[0]} */}
-        </p>
+        <p>Deadline :{deadline.split("T")[0]}</p>
         <div className="buttons">
           {show_button && (
             <Button
@@ -156,17 +137,8 @@ const TaskCard = ({
         onADD={handleCancel}
         okButtonProps={{ style: { display: "none" } }}
         cancelButtonProps={{ style: { display: "none" } }}
-        // cancelButtonProps={{ style: { display: "none" } }}
       >
-        <Form
-        // initialValues={{
-        //   title: editTask.title,
-        //   description: editTask.description,
-        //   project: editTask.project,
-        //   status: editTask.status,
-        //   deadline: editTask.deadline,
-        // }}
-        >
+        <Form>
           <Form.Item label="Title">
             <Input
               defaultValue={editTask.title}
@@ -195,23 +167,8 @@ const TaskCard = ({
                   <Select.Option value={item._id}>{item.name}</Select.Option>
                 );
               })}
-
-              {/* <Select.Option value="medium">Medium</Select.Option> */}
-              {/* <Select.Option value="high">High</Select.Option> */}
             </Select>
           </Form.Item>
-
-          {/* <select
-            value={book.author}
-            onChange={e => {
-              onInputChange(e, "author");
-            }}
-          >
-            <option value="">Choose Author</option>
-            {author.map(item => {
-              return <option value={item._id}>{item.name}</option>;
-            })}
-          </select> */}
 
           <Form.Item label="Status">
             <Select
@@ -228,12 +185,6 @@ const TaskCard = ({
             {/* // defaultValue={editTask.deadline} */}
             <DatePicker onChange={onChangeDate} format="YYYY-MM-DD" />
           </Form.Item>
-
-          {/* <DatePicker
-            onChange={onChangeDate}
-            defaultValue={defaultDate}
-            format="YYYY-MM-DD"
-          /> */}
 
           <Form.Item>
             <Button
