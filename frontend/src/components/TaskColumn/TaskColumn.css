@@ -1,0 +1,7 @@
+.task_column_heading {
+  background-color: rgb(209, 212, 215);
+  border: 1px solid grey;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  padding: 10px;
+}
