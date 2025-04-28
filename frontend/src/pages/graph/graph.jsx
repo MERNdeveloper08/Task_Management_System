@@ -1,3 +1,4 @@
+//
 import React from "react";
 import "./graph.css";
 import Navbar from "../../components/Navbar/navbar";
@@ -64,10 +65,10 @@ const Graph = () => {
           <Legend />
 
           {/* Stacked bars for each status */}
-          <Bar dataKey="Completed" stackId="a" fill="#00C49F" />
-          <Bar dataKey="In Progress" stackId="a" fill="#FF8042" />
+          <Bar dataKey="Completed" stackId="a" fill="#0988ab" />
+          <Bar dataKey="In Progress" stackId="a" fill="#17c2c2" />
 
-          <Bar dataKey="Pending" stackId="a" fill="#FFBB28" />
+          <Bar dataKey="Pending" stackId="a" fill="#eb8509" />
         </BarChart>
       </ResponsiveContainer>
     </div>

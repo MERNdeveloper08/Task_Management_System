@@ -1,7 +1,7 @@
 nav {
   height: 70px;
-  background-color: rgb(148, 145, 145);
-  color: rgb(8, 8, 8);
+  background-color: rgb(15, 87, 143);
+  color: rgb(255, 255, 255);
   display: flex;
   padding: 0 40px;
   justify-content: space-between;
@@ -19,5 +19,5 @@ nav {
   text-decoration: none;
 }
 .active {
-  color: rgb(11, 10, 9);
+  color: rgb(211, 112, 51);
 }
