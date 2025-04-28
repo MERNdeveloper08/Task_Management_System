@@ -77,7 +77,8 @@ const TaskForm = ({ setSelect }) => {
     const response = await axios.post("http://localhost:4000/task", add);
 
     setIsModalOpen(false);
-    // getTasks();
+    getTasks();
+    location.reload();
   };
   const handleChange = async e => {
     const selected_res = await axios.get(

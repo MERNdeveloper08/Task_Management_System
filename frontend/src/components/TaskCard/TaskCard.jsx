@@ -72,11 +72,12 @@ const TaskCard = ({
     );
 
     setIsEditModalOpen(false);
-    // getTasks();
+    location.reload();
   };
 
   const onDelClicked = async id => {
     const response = await axios.delete(`http://localhost:4000/task/${id}`);
+    location.reload();
   };
   const onEditClicked = async id => {
     const response = await axios.get(`http://localhost:4000/task/${id}`);

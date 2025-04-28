@@ -25,9 +25,9 @@ const Home = () => {
   }, []);
 
   const onDrop = async (status, position) => {
-    console.log(
-      `${activeCard} is going to place into ${status} and at the position ${position}`
-    );
+    // console.log(
+    //   `${activeCard} is going to place into ${status} and at the position ${position}`
+    // );
     if (activeCard === null || activeCard === undefined) return;
     console.log(activeCard);
 
@@ -40,30 +40,22 @@ const Home = () => {
     const updatedTasks = tasks.filter((task, index) => index !== activeCard);
     updatedTasks.splice(position, 0, { ...taskTomove, status: status });
 
-    console.log(tasks);
-    console.log(taskTomove);
-    console.log(status, "Status");
-    console.log(updatedTasks);
+    // console.log(tasks);
+    // console.log(taskTomove);
+    // console.log(status, "Status");
+    // console.log(updatedTasks);
 
     const res = await axios.delete("http://localhost:4000/task");
     updatedTasks.map(async item => {
       const response = await axios.post("http://localhost:4000/task", item);
       // You might want to handle the response or errors here
       console.log(response.data);
+      location.reload();
     });
-
-    // console.log(taskTomove._id);
-    // const response = await axios.patch(
-    //   `http://localhost:4000/task/${taskTomove._id}`,
-    //   (taskTomove.status = status)
-    // );
-    // console.log(response.data, "Task to move");
-    // const res = await axios.get("http://localhost:4000/task");
-    // console.log(res.data, "after move");
 
     useEffect(() => {
       onDrop();
-    }, [taskTomove]);
+    }, []);
 
     console.log(updatedTasks);
 
@@ -78,20 +70,11 @@ const Home = () => {
     // );
     // setTasks(updatedTasks);
   };
-  // const postTasks = async updatedTasks => {
-  //   const response = await axios.post(
-  //     "http://localhost:4000/task",
-  //     updatedTasks
-  //   );
-  // };
-  // useEffect(() => {
-  //   postTasks(updatedTasks);
-  // }, [updatedTasks]);
+
   return (
     <>
       <Navbar />
 
-      {/* <TaskForm setTasks={setTasks} /> */}
       <TaskForm setSelect={setSelect} />
 
       <div className="app">
