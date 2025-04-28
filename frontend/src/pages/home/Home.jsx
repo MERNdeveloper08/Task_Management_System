@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 
 import { useState, useEffect } from "react";
-import TaskForm from "../../components/TaskForm";
+import TaskForm from "../../components/TaskForm/TaskForm";
 import Navbar from "../../components/Navbar/navbar";
 import "./home.css";
 import TaskColumn from "../../components/TaskColumn/TaskColumn";

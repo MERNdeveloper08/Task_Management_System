@@ -5,7 +5,7 @@ import dayjs from "dayjs";
 import { useState, useEffect } from "react";
 
 import "./TaskCard.css";
-import TaskForm from "../TaskForm";
+import TaskForm from "../TaskForm/TaskForm";
 const TaskCard = ({
   index,
   title,
